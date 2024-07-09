@@ -5,12 +5,14 @@ import Navbar from './components/Navbar'
 import Footer from './components//Footer';
 import About from './pages/About';
 import Home from './pages/Home';
-
-
+import { GithubProvider } from './context/GithubContext';
 
 
 export default function App() {
   return (
+    <GithubProvider>
+
+
   <BrowserRouter>
   <Navbar />
   <Routes>
@@ -20,5 +22,6 @@ export default function App() {
   </Routes>
   <Footer />
   </BrowserRouter>
+    </GithubProvider>
   )
 }
