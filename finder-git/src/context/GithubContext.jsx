@@ -92,12 +92,17 @@ export const GithubProvider = ({children}) => {
     const getUserRepos = async (login) => {
 
         setLoading()
+        
+        const params = new URLSearchParams({
+           sort: 'created',
+           per_page:5,
+        })
 
        
 
 
 
-        const response = await fetch(`${import.meta.env.VITE_GITHUB_URL}/users/${login}/repos`, {
+        const response = await fetch(`${import.meta.env.VITE_GITHUB_URL}/users/${login}/repos?${params}`, {
             headers: {
                 Authorization: `token ${import.meta.env.VITE_GITHUB_TOKEN}`
             }
