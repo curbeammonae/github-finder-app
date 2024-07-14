@@ -21,11 +21,7 @@ export const GithubProvider = ({children}) => {
 
 
 
-        const response = await fetch(`${import.meta.env.VITE_GITHUB_URL}/users`, {
-            headers: {
-                Authorization: `token ${import.meta.env.VITE_GITHUB_TOKEN}`
-            }
-        })
+        const response = await fetch(`${import.meta.env.VITE_GITHUB_URL}/users`)
         const data = await response.json()
         dispatch({
             type: 'GET_USERS',
@@ -45,11 +41,7 @@ export const GithubProvider = ({children}) => {
 
 
 
-        const response = await fetch(`${import.meta.env.VITE_GITHUB_URL}/search/users?${params}`, {
-            headers: {
-                Authorization: `token ${import.meta.env.VITE_GITHUB_TOKEN}`
-            }
-        })
+        const response = await fetch(`${import.meta.env.VITE_GITHUB_URL}/search/users?${params}`)
         const {items} = await response.json()
         dispatch({
             type: 'GET_USERS',
@@ -68,11 +60,7 @@ export const GithubProvider = ({children}) => {
 
 
 
-        const response = await fetch(`${import.meta.env.VITE_GITHUB_URL}/users/${login}`, {
-            headers: {
-                Authorization: `token ${import.meta.env.VITE_GITHUB_TOKEN}`
-            }
-        })
+        const response = await fetch(`${import.meta.env.VITE_GITHUB_URL}/users/${login}`)
 
         if(response.status === 4040){
             window.location='/'
@@ -102,11 +90,8 @@ export const GithubProvider = ({children}) => {
 
 
 
-        const response = await fetch(`${import.meta.env.VITE_GITHUB_URL}/users/${login}/repos?${params}`, {
-            headers: {
-                Authorization: `token ${import.meta.env.VITE_GITHUB_TOKEN}`
-            }
-        })
+        const response = await fetch(`${import.meta.env.VITE_GITHUB_URL}/users/${login}/repos?${params}`
+         )
 
         if(response.status === 4040){
             window.location='/'
